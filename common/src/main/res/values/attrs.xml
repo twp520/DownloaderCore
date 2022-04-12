@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RatioView">
+        <attr name="baseWidth" format="boolean" />
+        <attr name="ratio" format="float" />
+    </declare-styleable>
+    <declare-styleable name="RatioImageView">
+        <attr name="rivBaseWidth" format="boolean" />
+        <attr name="rivRatio" format="float" />
+    </declare-styleable>
+</resources>

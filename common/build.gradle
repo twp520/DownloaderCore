@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    def compat_version = '1.4.0'
+    api 'androidx.core:core-ktx:1.7.0'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
+    api "androidx.appcompat:appcompat:$compat_version"
+    api "com.google.android.material:material:$compat_version"
+    api "androidx.activity:activity-ktx:$compat_version"
+    api "androidx.fragment:fragment-ktx:$compat_version"
+    api 'androidx.palette:palette-ktx:1.0.0'
+
+    def ktx_version = '2.4.0'
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktx_version"
+    api "androidx.lifecycle:lifecycle-livedata-core-ktx:$ktx_version"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$ktx_version"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:$ktx_version"
+
+    def retrofitVersion = "2.9.0"
+    api 'com.airbnb.android:lottie:4.0.0'
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    api 'com.blankj:utilcodex:1.31.0'
+}
