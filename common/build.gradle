@@ -2,7 +2,11 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'maven-publish'
 }
+
+group = 'com.colin.downloadercore'
+version = '1.0'
 
 android {
     compileSdk 31
@@ -55,4 +59,18 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
     api 'com.blankj:utilcodex:1.31.0'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.colin.downloadercore'
+                artifactId = 'common'
+                version = '1.0'
+            }
+        }
+    }
 }

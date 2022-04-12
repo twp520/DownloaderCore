@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
+
+group = 'com.colin.downloadercore'
+version = '1.0'
 
 android {
     compileSdk 31
@@ -34,4 +38,18 @@ android {
 dependencies {
 
     api(project(":common"))
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.colin.downloadercore'
+                artifactId = 'core'
+                version = '1.0'
+            }
+        }
+    }
 }
